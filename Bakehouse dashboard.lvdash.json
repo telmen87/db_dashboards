@@ -1,0 +1,170 @@
+{
+  "datasets": [
+    {
+      "name": "d550bc23",
+      "displayName": "sales_transactions",
+      "config": {
+        "version": "1.1",
+        "source": "samples.bakehouse.sales_transactions",
+        "dimensions": [
+          {
+            "name": "transactionID",
+            "expr": "source.transactionID",
+            "displayName": "Transaction ID"
+          },
+          {
+            "name": "customerID",
+            "expr": "source.customerID",
+            "displayName": "Customer ID"
+          },
+          {
+            "name": "franchiseID",
+            "expr": "source.franchiseID",
+            "displayName": "Franchise ID"
+          },
+          {
+            "name": "dateTime",
+            "expr": "source.dateTime",
+            "displayName": "Date Time"
+          },
+          {
+            "name": "product",
+            "expr": "source.product",
+            "displayName": "Product"
+          },
+          {
+            "name": "quantity",
+            "expr": "source.quantity",
+            "displayName": "Quantity"
+          },
+          {
+            "name": "unitPrice",
+            "expr": "source.unitPrice",
+            "displayName": "Unit Price"
+          },
+          {
+            "name": "totalPrice",
+            "expr": "source.totalPrice",
+            "displayName": "Total Price"
+          },
+          {
+            "name": "paymentMethod",
+            "expr": "source.paymentMethod",
+            "displayName": "Payment Method"
+          },
+          {
+            "name": "cardNumber",
+            "expr": "source.cardNumber",
+            "displayName": "Card Number"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    }
+  ],
+  "pages": [
+    {
+      "name": "560de4a4",
+      "displayName": "Transaction Details",
+      "layout": [
+        {
+          "widget": {
+            "name": "example",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "d550bc23",
+                  "fields": [
+                    {
+                      "name": "dateTime",
+                      "expression": "`dateTime`"
+                    },
+                    {
+                      "name": "unitPrice",
+                      "expression": "`unitPrice`"
+                    },
+                    {
+                      "name": "quantity",
+                      "expression": "`quantity`"
+                    },
+                    {
+                      "name": "totalPrice",
+                      "expression": "`totalPrice`"
+                    },
+                    {
+                      "name": "paymentMethod",
+                      "expression": "`paymentMethod`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true,
+                "title": "Transaction table",
+                "showDescription": false,
+                "headerAlignment": "right"
+              },
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "dateTime"
+                  },
+                  {
+                    "fieldName": "unitPrice"
+                  },
+                  {
+                    "fieldName": "quantity"
+                  },
+                  {
+                    "fieldName": "totalPrice"
+                  },
+                  {
+                    "fieldName": "paymentMethod"
+                  }
+                ],
+                "rowOrder": [
+                  {
+                    "by": "column",
+                    "field": {
+                      "index": 0
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
